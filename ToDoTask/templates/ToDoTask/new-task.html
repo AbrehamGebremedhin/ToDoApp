@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load widget_tweaks %}
+<div class="container mt-5 pt-5">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}

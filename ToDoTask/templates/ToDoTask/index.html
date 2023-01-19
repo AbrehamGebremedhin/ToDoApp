@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for task in tasks %}
+<div class="container-fluid mt-5 pt-5 rounded-top rounded-bottom border-danger">
+    <div class="card-deck mt-3">
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{task.task_title}}</h5>
+                    <p class="card-text">{{task.task_description}}.</p>
+                    <p class="card-text"><small class="text-muted">Created on {{task.created}}</small></p>
+                    <p class="card-text"><small class="text-muted text-danger">{{task.task_status}}</small></p>
+                    <a href="{% url 'delete' task.id %}" class="btn btn-outline-danger">Delete</a>
+                    <a href="{% url 'complete' task.id %}" class="btn btn-outline-info mr-2">Mark as Complete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
